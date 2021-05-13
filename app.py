@@ -5,7 +5,7 @@ from NaiveBayes import NaiveBayes
 st.set_page_config(layout='centered')
 
 st.title("Naive Bayes Classifier")
-st.markdown("By [@JuliusAlphonso](https://twitter.com/JuliusAlphonso)")
+st.markdown("By [@JuliusAlphonso](https://twitter.com/JuliusAlphonso) | Fork on [GitHub](https://github.com/JadeMaveric/NaiveBayesViz)")
 
 dataset = st.sidebar.file_uploader("Choose a file")
 probability_selector = st.sidebar.selectbox("Probability", ['simple', 'm-estimate', 'laplace'])
@@ -45,12 +45,12 @@ if df is not None:
         st.write(df)
 
     with st.beta_expander("Probabilities", expanded=False):
-        st.subheader("Prior Probabilities")
+        st.subheader("Prior -- P(Y==outcome)")
         st.write(nb.prior)
-        st.subheader("Likelihood")
-        st.write(nb.likelihood)
-        st.subheader("Evidence")
+        st.subheader("Evidence -- P(X==value)")
         st.write(nb.evidence)
+        st.subheader("Likelihood -- P(X==value|Y==outcome)")
+        st.write(nb.likelihood)
 
     st.header("Classify a record")
     with st.form(key='test_record'):
