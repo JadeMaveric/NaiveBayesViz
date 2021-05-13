@@ -23,15 +23,15 @@ else:
     )
     st.header("Don't have a dataset? Load a demo")
     demosets = {
-        'Tennis': 'https://raw.githubusercontent.com/JadeMaveric/NaiveBayesViz/main/ML/data/tennis.csv',
-        'Cars': 'https://raw.githubusercontent.com/JadeMaveric/NaiveBayesViz/main/ML/data/cars.csv',
-        'Customers': 'https://raw.githubusercontent.com/JadeMaveric/NaiveBayesViz/main/ML/data/customers.csv'
+        'Tennis': 'https://raw.githubusercontent.com/JadeMaveric/NaiveBayesViz/main/data/tennis.csv',
+        'Cars': 'https://raw.githubusercontent.com/JadeMaveric/NaiveBayesViz/main/data/cars.csv',
+        'Customers': 'https://raw.githubusercontent.com/JadeMaveric/NaiveBayesViz/main/data/customers.csv'
     }
 
     dataset = st.selectbox('Dataset', ['None']+list(demosets.keys()))
     
     if dataset != 'None':
-        df = pd.read_csv(demosets[dataset], sep='\s+')
+        df = pd.read_csv(demosets[dataset])
     else:
         df = None
 
